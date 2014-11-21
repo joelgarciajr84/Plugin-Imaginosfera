@@ -92,10 +92,18 @@ function imaginosfera_redirect_user_on_role()
     
     //Para saber mais sobre os niveis, leia http://codex.wordpress.org/pt-br:Pap%C3%A9is_e_Capacidades
     //Se o usuario de login for Subscriber/Assinante
-    if ($current_user->user_level == 0)
-    {
+
+    if (current_user_can("read")) {
+
         wp_redirect( home_url() ); exit;
     }
+    
+    /*if (Deprecated$current_user->user_level == 0)/
+    {
+        wp_redirect( home_url() ); exit;
+    }*/
+
+
     //Se o usuario de login for Contributor/Colaborador
     /*if ($current_user->user_level > 1)
     {
